@@ -98,6 +98,39 @@ terraform {
 | <a name="private_data_subnet_ids"></a> [private_data_subnet_ids](#output\_private\_data\_subnet\_ids) | private data subnet cidr  |
 
 
+### Environment specific directories 
+
+```
+├── environments/
+│   ├── development/
+│   │   └── terraform.tfvars
+│   ├── production/
+│   │   └── terraform.tfvars
+│   └── global/
+│       └── s3/
+│           ├── main.tf
+│           └── outputs.tf
+└── modules/
+    ├── vpc/
+    │   ├── main.tf
+    │   ├── outputs.tf
+    │   └── variables.tf
+    ├── rds/
+    │   ├── main.tf
+    │   ├── outputs.tf
+    │   └── variables.tf
+    ├── efs/
+    │   ├── main.tf
+    │   ├── outputs.tf
+    │   └── variables.tf
+    └── wordpress/
+        ├── main.tf
+        ├── outputs.tf
+        └── variables.tf
+
+
+```
+
 ### Link
 
 [Medium Blog](https://www.markdownguide.org)
