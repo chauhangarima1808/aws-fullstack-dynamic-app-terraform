@@ -50,11 +50,25 @@ In this workshop, we will walk through the steps to deploy a highly available an
 | [aws_lb_listener.http](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener.html) | resource |
 
 
+### Remote Backend with AWS S3 and Dynamo DB
+
+```
+terraform {
+  backend "s3" {
+    bucket         = "wordpress-terraform-state"
+    key            = "terraform/state"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-lock"
+    encrypt        = true
+  }
+}
+```
+
 ## Inputs
 
 | Name | Description | Type | 
 |------|-------------|------|
-| <a name="aws_region"></a> [aws\_region](#input\_aws\_region) | deployment region | `string` | 
+| <a name="aws_region"></a> [aws_region](#input\_aws\_region) | deployment region | `string` | 
 | <a name="project_name"></a> [project_name](#input\project\name) | project name | `string` | 
 | <a name="vpc_cidr"></a> [vpc_cidr](#input\vpc\cidr) | project name | `string` | 
 | <a name="azs"></a> [azs](#input\azs) | availability zones | `list(string)` |
@@ -72,20 +86,17 @@ In this workshop, we will walk through the steps to deploy a highly available an
 | <a name="asg_max_size"></a> [asg_max_size](#input\asg\max\size) | auto scaling group max size | `number` | 
 | <a name="asg_min_size"></a> [asg_min_size](#input\asg\min\size) | auto scaling group min size | `number` | 
 
+## Outputs
 
-### Remote Backend with AWS S3 and Dynamo DB
+| Name | Description |
+|------|-------------|
+| <a name="dns_name"></a> [dns\_name](#output\_dns_\_name_) | dns name  |
+| <a name="efs_id"></a> [efs\_id](#output\_efs\_id) | efs id |
+| <a name="endpoint"></a> [endpoint](#output\_endpoint) | rds endpoint|
+| <a name="public_subnet_ids"></a> [public_subnet_ids](#output\_public\_subnet\_ids) | public subnet cidr |
+| <a name="private_app_subnet_ids"></a> [private_app_subnet_ids](#output\_private\_app\_subnet\_ids) | private app subnet cidr |
+| <a name="private_data_subnet_ids"></a> [private_data_subnet_ids](#output\_private\_data\_subnet\_ids) | private data subnet cidr  |
 
-```
-terraform {
-  backend "s3" {
-    bucket         = "wordpress-terraform-state"
-    key            = "terraform/state"
-    region         = "us-east-1"
-    dynamodb_table = "terraform-lock"
-    encrypt        = true
-  }
-}
-```
 
 ### Link
 
