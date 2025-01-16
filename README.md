@@ -9,9 +9,10 @@ In this workshop, we will walk through the steps to deploy a highly available an
 
 ![ARCH](docs/architecture.jpg)
 
-### Deployed Web App
-![APP](docs/webapp.jpg)
-![WAPP](docs/wordpress_webapp.jpg)
+### Deployed Application
+![APP](docs/webapp.png)
+![WAPP](docs/wordpress.png)
+
 
 ## Providers
 
